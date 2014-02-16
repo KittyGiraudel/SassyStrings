@@ -1,0 +1,14 @@
+@function str-reverse($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-reverse` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $result: "";
+
+  @for $i from str-length($string) * -1 through -1 {
+    $result: $result + str-slice($string, abs($i), abs($i));
+  }
+
+  @return $result;
+}

@@ -1,0 +1,15 @@
+@function stringify($literal) {
+  $result: "";
+
+  @if length($literal) == 1 {
+    $result: $literal + unquote("");
+  }
+
+  @else {
+    @each $item in $literal {
+      $result: $result + stringify($item);
+    }
+  }
+
+  @return quote($result);
+}

@@ -1,0 +1,5 @@
+{
+  "name": "sassy-strings",
+  "description": "Here is a Compass Extension providing you all functions you need to manipulate your Sass strings.",
+  "tags": ["strings", "code-quality", "dry", "performance"]
+}

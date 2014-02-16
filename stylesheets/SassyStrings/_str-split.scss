@@ -1,0 +1,14 @@
+@function str-split($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-split` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $result: ();
+
+  @for $i from 1 through str-length($string) {
+    $result: append($result, str-slice($string, $i, $i));
+  }
+
+  @return $result;
+}

@@ -1,0 +1,31 @@
+@function str-rot($string, $rot: 13) {
+  @if type-of($string) != "string" {
+    @warn "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $alphabet: a b c d e f g h i j k l m n o p q r s t u v w x y z;
+  $result: "";
+  $rot: if(type-of($rot) == "number", floor($rot), 13);
+
+  @for $i from 1 through str-length($string) {
+    $char: str-slice($string, $i, $i);
+    $index: index($alphabet, to-lower-case($char));
+    $is-caps: $index and (index($alphabet, to-lower-case($char)) != index($alphabet, $char));
+    $new-char: if($index, 
+      if($index + $rot > length($alphabet), 
+        nth($alphabet, $index + $rot - length($alphabet)), 
+        nth($alphabet, $index + $rot)
+      ),
+      $char
+    );
+
+    @if $is-caps {
+      $new-char: to-upper-case($new-char);
+    }
+
+    $result: $result + $new-char;
+  }
+
+  @return $new-string;
+}

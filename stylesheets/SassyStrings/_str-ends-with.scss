@@ -1,0 +1,13 @@
+@function str-ends-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, -1 * str-length($needle)) == $needle;
+}
