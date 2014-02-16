@@ -16,5 +16,10 @@
     @return false;
   }
 
+  @if $index < 1 or $index > str-length($string) {
+    @warn "Out of bounds $index for `char-at`.";
+    @return false;
+  }
+
   @return str-slice($string, $index, $index);
 }

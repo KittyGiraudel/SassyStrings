@@ -1,5 +1,6 @@
 @include describe('The str-implode function') {
   @include it('should merge all values from a list into a string') {
     @include should(expect(str-implode('a' 'b' 'c' 'd' 'e')), to(equal('abcde')));
+    @include should(expect(str-implode('a' 'b' ('c' 'd' 'e'))), to(equal('abcde')));
   }
 }

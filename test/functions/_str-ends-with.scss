@@ -2,5 +2,6 @@
   @include it('should return whether the string ends with substring') {
     @include should(expect(str-ends-with('abcde', 'a')), to(equal(false)));
     @include should(expect(str-ends-with('abcde', 'e')), to(equal(true)));
+    @include should(expect(str-ends-with('abcde', 'abcde')), to(equal(true)));
   }
 }

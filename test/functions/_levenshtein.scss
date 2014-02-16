@@ -1,0 +1,7 @@
+@include describe('The levenshtein function') {
+  @include it('should return the Lenvenshtein distance between two strings') {
+    @include should(expect(levenshtein('saturday', 'sunday')), to(equal(3)));
+    @include should(expect(levenshtein('book', 'back')), to(equal(2)));
+    @include should(expect(levenshtein('sass', 'craziness')), to(equal(6)));
+  }
+}

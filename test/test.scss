@@ -4,6 +4,7 @@
 @include runner-start;
 
 @import "functions/char-at";
+@import "functions/levenshtein";
 @import "functions/str-count";
 @import "functions/str-ends-with";
 //@import "functions/str-explode";
@@ -14,7 +15,6 @@
 @import "functions/str-replace";
 @import "functions/str-rot";
 //@import "functions/str-shuffle";
-@import "functions/str-split";
 @import "functions/str-starts-with";
 @import "functions/str-trim";
 @import "functions/str-ucfirst";

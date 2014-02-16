@@ -8,7 +8,7 @@
   $result: "";
 
   @each $item in $list {
-    $result: $result + $item;
+    $result: $result + if(length($item) > 1, str-implode($item), $item);
   }
 
   @return $result;
