@@ -1,1 +1,5 @@
+node_modules
+tmp
 .sass-cache
+config.rb
+*.gem

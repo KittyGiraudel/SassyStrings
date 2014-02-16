@@ -1,0 +1,389 @@
+/*! SassyStrings - v0.0.1 - 2014-02-16 */
+@function char-at($string, $index) {
+  @if type-of($string) != "string" {
+    @warn "`char-at` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($index) != "number" {
+    @warn "`char-at` function expecting a number for $index; #{type-of($index)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, $index, $index);
+}
+
+@function str-count($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-count` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-count` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  $index: str-index($string, $needle);
+  $result: 1;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $result + 1;
+      }
+    }
+  }
+
+  @return $result;
+}
+@function str-ends-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, -1 * str-length($needle)) == $needle;
+}
+
+@function str-explode($string, $delimiter: '') {
+  @if type-of($string) != "string" {
+    @warn "`explode` function expecting a string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($delimiter) != "string" {
+    @warn "`explode` function expecting a string; #{type-of($delimiter)} given.";
+    @return false;
+  }
+
+  $result: ();
+  $length: str-length($string);
+
+  @if str-length($delimiter) == 0 {
+    @for $i from 1 through $length {
+      $result: append($result, str-slice($string, $i, $i));
+    }
+    @return $result;
+  }
+
+  $running: true;
+  $remaining: $string;
+
+  @while $running {
+    $index: str-index($remaining, $delimiter);
+    @if not $index or $index == 0 {
+      $running: false;
+    }
+    @else {
+      $slice: str-slice($remaining, 1, $index - 1);
+      $result: append($result, $slice);
+      $remaining: str-slice($remaining, $index + str-length($delimiter));
+    }
+  }
+
+  @return append($result, $remaining);
+}
+@function str-implode($list) {
+  $result: "";
+
+  @each $item in $list {
+    $result: $result + $item;
+  }
+
+  @return $result;
+}
+@function str-last-index($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-last-index` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-last-index` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  $index: str-index($string, $needle);
+  $result: $index;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $i;
+      }
+    }
+  }
+
+  @return $result;
+}
+@function str-lcfirst($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-lcfirst` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @return to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+@function str-pad($string, $length, $pad: " ", $direction: left) {
+  @if type-of($string) != "string" {
+    @warn "`str-pad` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($pad) != "string" {
+    @warn "`str-pad` function expecting a string for $pad; #{type-of($pad)} given.";
+    @return false;
+  }
+
+  @if type-of($length) != "number" {
+    @warn "`str-pad` function expecting a number for $length; #{type-of($length)} given.";
+    @return false;
+  }
+
+  $direction: if(index(left right, $direction), $direction, left);
+  $new-string: $string;
+  $index: 1;
+
+  @if $length > str-length($string) {
+    @while str-length($new-string) < $length {
+      $remains: $length - str-length($new-string);
+      $pad: if($remains < str-length($pad), str-slice($pad, 1, $remains), $pad);
+      @if $direction == left {
+        $new-string: str-insert($new-string, $pad, $index);
+        $index: $index + str-length($pad);
+      }
+      @else {
+        $new-string: $new-string + $pad;
+      }
+    }
+  }
+
+  @return $new-string;
+}
+@function str-printf($string, $elements...) {
+  @if type-of($string) != "string" {
+    @warn "`str-printf` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $breaker: '%s'; 
+  $result: $string;
+
+  @for $i from 1 through length($elements) {
+    $index: str-index($result, $breaker);
+    @if $index {
+      $result: str-slice($result, 1, $index - 1) + stringify(nth($elements, $i)) + str-slice($result, $index + str-length($breaker));
+    }
+    @else {
+      @return $result;
+    }
+  }
+
+  @return $result;
+}
+@function str-repeat($string, $times) {
+  @if type-of($string) != "string" {
+    @warn "`str-repeat` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($times) != "number" {
+    @warn "`str-repeat` function expecting a number for $times; #{type-of($times)} given.";
+    @return false;
+  }
+
+  $result: "";
+
+  @for $i from 1 through $times {
+    $result: $result + $string;
+  }
+
+  @return $result;
+}
+@function str-replace($string, $old, $new: '', $case-sensitive: true) {
+  @if type-of($string) != string or type-of($old) != string or type-of($new) != string {
+    @warn "One of the 3 arguments is not a string.";
+    @return $string;
+  }
+
+  @if str-index($new, $old) != 0 {
+    @warn "The string to be replaced is contained in the new string. Infinite recursion avoided.";
+    @return $string;
+  }
+
+  $index: if(not $case-sensitive, str-index(to-lower-case($string), to-lower-case($old)),  str-index($string, $old));
+
+  @if $index > 0 and $new != $old {
+    $result: quote(str-slice($string, 1, $index - 1));
+
+    @for $i from $index through str-length($string) {
+      @if $i < $index or $i >= $index + str-length($old) {
+        $result: $result + str-slice($string, $i, $i);
+      }
+    }
+
+    @return quote(str-replace(str-insert($result, $new, $index), $old, $new, $case-sensitive)); 
+  }
+
+  @return $string;
+}
+@function str-reverse($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-reverse` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $result: "";
+
+  @for $i from str-length($string) * -1 through -1 {
+    $result: $result + str-slice($string, abs($i), abs($i));
+  }
+
+  @return $result;
+}
+@function str-rot($string, $rot: 13) {
+  @if type-of($string) != "string" {
+    @warn "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $alphabet: a b c d e f g h i j k l m n o p q r s t u v w x y z;
+  $result: "";
+  $rot: if(type-of($rot) == "number", floor($rot), 13);
+
+  @for $i from 1 through str-length($string) {
+    $char: str-slice($string, $i, $i);
+    $index: index($alphabet, to-lower-case($char));
+    $is-caps: $index and (index($alphabet, to-lower-case($char)) != index($alphabet, $char));
+    $new-char: if($index, 
+      if($index + $rot > length($alphabet), 
+        nth($alphabet, $index + $rot - length($alphabet)), 
+        nth($alphabet, $index + $rot)
+      ),
+      $char
+    );
+
+    @if $is-caps {
+      $new-char: to-upper-case($new-char);
+    }
+
+    $result: $result + $new-char;
+  }
+
+  @return $new-string;
+}
+@function _shuffle($list) {
+  @for $i from -1 * length($list) through -1 {
+    $i: abs($i);
+    $j: random(length($list) - 1) + 1;
+    $tmp: nth($list, $i);
+    $list: set-nth($list, $i, nth($list, $j));
+    $list: set-nth($list, $j, $tmp);
+  }
+  @return $list;
+}
+
+@function str-shuffle($string) {
+  @return str-implode(_shuffle(str-split($string)));
+}
+@function str-split($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-split` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $result: ();
+
+  @for $i from 1 through str-length($string) {
+    $result: append($result, str-slice($string, $i, $i));
+  }
+
+  @return $result;
+}
+@function str-starts-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return str-slice($string, 1, str-length($needle)) == $needle;
+}
+
+@function str-trim($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-trim` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $start: 1;
+  $end: str-length($string);
+
+  @for $i from 1 through str-length($string) {
+    $first: str-slice($string, $i, $i);
+    $last: str-slice($string, -$i, -$i);
+
+    @if $first == " " and $i + 1 == $start + 1 {
+      $start: $i + 1;
+    }
+
+    @if $last == " " and str-length($string) - $i == $end - 1 {
+      $end: str-length($string) - $i;
+    }
+  }
+
+  @return str-slice($string, $start, $end);
+}
+@function str-ucfirst($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-ucfirst` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+@function str-word-count($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-word-count` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $string: str-trim($string);
+  $words: ();
+  $i: str-length($string);
+
+  @while $i > 0 {
+    @if str-slice($string, $i, $i) == " " {
+      $words: append($words, str-slice($string, $i + 1));
+      $string: str-slice($string, 1, $i - 1);
+    }
+    $i: $i - 1;
+  }
+
+  @return length(append($words, $string));
+}
+@function stringify($literal) {
+  $result: "";
+
+  @if length($literal) == 1 {
+    $result: $literal + unquote("");
+  }
+
+  @else {
+    @each $item in $literal {
+      $result: $result + stringify($item);
+    }
+  }
+
+  @return quote($result);
+}

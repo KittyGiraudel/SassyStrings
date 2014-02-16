@@ -1,0 +1,33 @@
+{
+  "name": "SassyStrings",
+  "version": "0.0.1",
+  "description": "All you ever wanted to deal with strings in Sass.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoGiraudel/SassyStrings"
+  },
+  "keywords": [
+    "sass",
+    "strings",
+    "scss"
+  ],
+  "author": "Hugo Giraudel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/SassyStrings/issues"
+  },
+  "homepage": "https://github.com/HugoGiraudel/SassyStrings",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "bootcamp": "~1.0.1"
+  }
+}
