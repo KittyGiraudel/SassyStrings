@@ -1,0 +1,9 @@
+@function str-implode($list) {
+  $result: "";
+
+  @each $item in $list {
+    $result: $result + $item;
+  }
+
+  @return $result;
+}

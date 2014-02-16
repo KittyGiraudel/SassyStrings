@@ -1,0 +1,5 @@
+@include describe('The char-at function') {
+  @include it('should return the character at given index') {
+    @include should(expect(char-at('abcde', 2)), to(equal('b')));
+  }
+}

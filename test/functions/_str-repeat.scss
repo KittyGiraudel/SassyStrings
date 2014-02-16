@@ -1,0 +1,5 @@
+@include describe('The str-repeat function') {
+  @include it('should repeat a string a given number of times') {
+    @include should(expect(str-repeat('abcde', 2)), to(equal('abcdeabcde')));
+  }
+}

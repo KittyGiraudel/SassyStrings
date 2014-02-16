@@ -1,0 +1,5 @@
+@include describe('The str-rot function') {
+  @include it('should convert characters from string by moving index in alphabet') {
+    @include should(expect(str-rot('abcde', 1)), to(equal('bcdef')));
+  }
+}

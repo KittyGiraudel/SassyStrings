@@ -1,0 +1,5 @@
+@include describe('The str-reverse function') {
+  @include it('should reverse a string') {
+    @include should(expect(str-reverse('abcde')), to(equal('edcba')));
+  }
+}

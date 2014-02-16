@@ -1,0 +1,14 @@
+@function _shuffle($list) {
+  @for $i from -1 * length($list) through -1 {
+    $i: abs($i);
+    $j: random(length($list) - 1) + 1;
+    $tmp: nth($list, $i);
+    $list: set-nth($list, $i, nth($list, $j));
+    $list: set-nth($list, $j, $tmp);
+  }
+  @return $list;
+}
+
+@function str-shuffle($string) {
+  @return str-implode(_shuffle(str-split($string)));
+}

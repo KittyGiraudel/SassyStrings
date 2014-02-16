@@ -1,0 +1,5 @@
+@include describe('The str-word-count function') {
+  @include it('should count the number of words in string') {
+    @include should(expect(str-word-count('this is a string')), to(equal(4)));
+  }
+}

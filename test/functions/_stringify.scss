@@ -1,0 +1,5 @@
+@include describe('The stringify function') {
+  @include it('should cast to string anything') {
+    @include should(expect(stringify(4)), to(equal('4')));
+  }
+}

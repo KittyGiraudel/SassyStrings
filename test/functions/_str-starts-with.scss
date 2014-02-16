@@ -1,0 +1,6 @@
+@include describe('The str-starts-with function') {
+  @include it('should return whether the string stars with substring') {
+    @include should(expect(str-starts-with('abcde', 'a')), to(equal(true)));
+    @include should(expect(str-starts-with('abcde', 'e')), to(equal(false)));
+  }
+}

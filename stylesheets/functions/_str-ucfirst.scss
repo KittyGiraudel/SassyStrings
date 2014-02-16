@@ -1,0 +1,8 @@
+@function str-ucfirst($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-ucfirst` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

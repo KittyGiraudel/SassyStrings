@@ -1,0 +1,28 @@
+@function str-replace($string, $old, $new: '', $case-sensitive: true) {
+  @if type-of($string) != string or type-of($old) != string or type-of($new) != string {
+    @warn "One of the 3 arguments is not a string.";
+    @return $string;
+  }
+
+  @if str-index($new, $old) {
+    @warn "The string to be replaced is contained in the new string. Infinite recursion avoided.";
+    @return $string;
+  }
+
+  $index: if(not $case-sensitive, str-index(to-lower-case($string), to-lower-case($old)),  str-index($string, $old));
+
+  @if $index and $new != $old {
+    $result: if($index != 1, quote(str-slice($string, 1, $index - 1)), '');
+
+    @for $i from $index through str-length($string) {
+      @if $i < $index or $i >= $index + str-length($old) {
+        $result: $result + str-slice($string, $i, $i);
+      }
+    }
+
+    @return quote(str-replace(str-insert($result, $new, $index), $old, $new, $case-sensitive)); 
+  }
+
+  @return $string;
+}
+

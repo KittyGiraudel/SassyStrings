@@ -1,0 +1,24 @@
+@function str-trim($string) {
+  @if type-of($string) != "string" {
+    @warn "`str-trim` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  $start: 1;
+  $end: str-length($string);
+
+  @for $i from 1 through str-length($string) {
+    $first: str-slice($string, $i, $i);
+    $last: str-slice($string, -$i, -$i);
+
+    @if $first == " " and $i + 1 == $start + 1 {
+      $start: $i + 1;
+    }
+
+    @if $last == " " and str-length($string) - $i == $end - 1 {
+      $end: str-length($string) - $i;
+    }
+  }
+
+  @return str-slice($string, $start, $end);
+}

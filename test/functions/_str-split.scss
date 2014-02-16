@@ -1,0 +1,5 @@
+@include describe('The str-split function') {
+  @include it('should return a list of all characters from string') {
+    @include should(expect(str-split('abcde')), to(equal('a' 'b' 'c' 'd' 'e')));
+  }
+}

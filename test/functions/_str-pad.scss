@@ -1,0 +1,5 @@
+@include describe('The str-pad function') {
+  @include it('should pad substring to string until number of characters matched') {
+    @include should(expect(str-pad('abcde', 10, '--')), to(equal('-----abcde')));
+  }
+}

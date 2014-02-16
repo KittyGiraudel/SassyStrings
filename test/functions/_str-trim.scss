@@ -1,0 +1,5 @@
+@include describe('The str-trim function') {
+  @include it('should remove leading and trailing spaces from string') {
+    @include should(expect(str-trim('  abcde  ')), to(equal('abcde')));
+  }
+}

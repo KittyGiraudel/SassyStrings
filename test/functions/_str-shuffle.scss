@@ -1,0 +1,5 @@
+@include describe('The str-shuffle function') {
+  @include it('') {
+    @include should(expect(), to());
+  }
+}

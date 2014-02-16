@@ -1,0 +1,5 @@
+@include describe('The str-printf function') {
+  @include it('should replace %s by arguments in string') {
+    @include should(expect(str-printf('%s is a %s', 'this', 'string')), to(equal('this is a string')));
+  }
+}

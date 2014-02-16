@@ -1,0 +1,5 @@
+@include describe('The str-ucfirst function') {
+  @include it('should upper case the first character from string') {
+    @include should(expect(str-ucfirst('abcde')), to(equal('Abcde')));
+  }
+}

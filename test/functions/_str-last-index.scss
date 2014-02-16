@@ -1,0 +1,5 @@
+@include describe('The str-last-index function') {
+  @include it('should return index of last occurrence of substring in string') {
+    @include should(expect(str-last-index('test', 't')), to(equal(4)));
+  }
+}

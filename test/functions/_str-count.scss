@@ -1,0 +1,5 @@
+@include describe('The str-count function') {
+  @include it('should return the number of occurrences of substring in string') {
+    @include should(expect(str-count('abcde', 'a')), to(equal(1)));
+  }
+}

@@ -1,0 +1,5 @@
+@include describe('The str-replace function') {
+  @include it('should replace substring by another substring in string') {
+    @include should(expect(str-replace('abcde', 'a', 'z')), to(equal('zbcde')));
+  }
+}

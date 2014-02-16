@@ -1,0 +1,5 @@
+@include describe('The str-explode function') {
+  @include it('should split string into list based on delimiter') {
+    @include should(expect(str-explode('a b c d e', ' ')), to(equal('a' 'b' 'c' 'd' 'e')));
+  }
+}
