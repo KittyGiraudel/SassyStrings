@@ -22,8 +22,8 @@
   $n: str-length($a);
   $m: str-length($b);
 
-  $matrix: matrix($n + 1, $m + 1);
-  $cost: matrix($n, $m);
+  $matrix: _matrix($n + 1, $m + 1);
+  $cost: _matrix($n, $m);
 
   @if $a == $b { @return 0; }
   @if $n == 0  { @return $m; }
@@ -33,26 +33,24 @@
     @for $j from 0 through $m  {
       $v: if($i == 0, $j, if($j == 0, $i, 0));
       @if $v != 0 {
-        $matrix: set-matrix($matrix, $i + 1, $j + 1, $v);
+        $matrix: _set-matrix($matrix, $i + 1, $j + 1, $v);
       }
       @if $i != 0 and $j != 0 {
         $v: if(str-slice($a, $i, $i) == str-slice($b, $j, $j), 0, 1);
         @if $v != 0 {
-          $cost: set-matrix($cost, $i, $j, $v);
+          $cost: _set-matrix($cost, $i, $j, $v);
         }
       }
     }
   }
 
-  // Updating $matrix
   @for $i from 2 through length($matrix) {
     @for $j from 2 through length(nth($matrix, $i)) {
-      $matrix: set-matrix($matrix, $i, $j, min(e($matrix, $i - 1, $j) + 1, e($matrix, $i, $j - 1) + 1, e($matrix, $i - 1, $j - 1) + e($cost, $i - 1, $j - 1)));
+      $matrix: _set-matrix($matrix, $i, $j, min(_e($matrix, $i - 1, $j) + 1, _e($matrix, $i, $j - 1) + 1, _e($matrix, $i - 1, $j - 1) + _e($cost, $i - 1, $j - 1)));
     }
   }
 
-  // Returning result
-  @return e($matrix, length($matrix), length(nth($matrix, 1)));
+  @return _e($matrix, length($matrix), length(nth($matrix, 1)));
 }
 
 
@@ -64,7 +62,7 @@
 // ----------------------------------------------------------------------------------------------------
 // @return [literal]
 
-@function e($m, $x, $y) {
+@function _e($m, $x, $y) {
   @return nth(nth($m, $x), $y);
 }
 
@@ -75,7 +73,7 @@
 // ----------------------------------------------------------------------------------------------------
 // @return [list]
 
-@function matrix($x, $y) {
+@function _matrix($x, $y) {
   $matrix: ();
   @for $i from 1 through $x {
     $tmp: ();
@@ -96,6 +94,6 @@
 // ----------------------------------------------------------------------------------------------------
 // @return [list]
 
-@function set-matrix($matrix, $x, $y, $value) {
-  @return set-nth($matrix, $x, set-nth(nth($matrix, $x), $y, $value));  
+@function _set-matrix($matrix, $x, $y, $value) {
+  @return set-nth($matrix, $x, set-nth(nth($matrix, $x), $y, $value));
 }
