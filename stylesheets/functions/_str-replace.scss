@@ -8,9 +8,19 @@
 // @return [string] | false
 
 @function str-replace($string, $old, $new: '', $case-sensitive: true) {
-  @if type-of($string) != string or type-of($old) != string or type-of($new) != string {
-    @warn "One of the 3 arguments is not a string.";
-    @return $string;
+  @if type-of($string) != "string" {
+    @warn "`str-replace` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($old) != "string" {
+    @warn "`str-replace` function expecting a string for $old; #{type-of($old)} given.";
+    @return false;
+  }
+
+  @if type-of($new) != "string" {
+    @warn "`str-replace` function expecting a string for $new; #{type-of($new)} given.";
+    @return false;
   }
 
   @if str-index($new, $old) {
