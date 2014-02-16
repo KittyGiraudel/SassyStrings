@@ -2,4 +2,8 @@
   @include it('should return the character at given index') {
     @include should(expect(char-at('abcde', 2)), to(equal('b')));
   }
+
+  @include it('should return empty string if there is no character at given index') {
+    @include should(expect(char-at('abcde', 10)), to(equal('')));
+  }
 }

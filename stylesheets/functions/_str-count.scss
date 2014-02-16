@@ -10,7 +10,7 @@
   }
 
   $index: str-index($string, $needle);
-  $result: 1;
+  $result: if($index, 1, 0);
 
   @if $index {
     @for $i from $index + str-length($needle) through str-length($string) {

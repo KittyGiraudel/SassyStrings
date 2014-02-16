@@ -1,5 +1,6 @@
 @include describe('The str-lcfirst function') {
   @include it('should lower case first character from string') {
     @include should(expect(str-lcfirst('ABCDE')), to(equal('aBCDE')));
+    @include should(expect(str-lcfirst('abcde')), to(equal('abcde')));
   }
 }
