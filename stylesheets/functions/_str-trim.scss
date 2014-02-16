@@ -1,3 +1,9 @@
+// Remove all trailing and leading whitespaces from $string
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-trim($string) {
   @if type-of($string) != "string" {
     @warn "`str-trim` function expecting a string for $string; #{type-of($string)} given.";

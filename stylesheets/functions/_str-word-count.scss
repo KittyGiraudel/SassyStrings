@@ -1,3 +1,9 @@
+// Count number of words in $string
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-word-count($string) {
   @if type-of($string) != "string" {
     @warn "`str-word-count` function expecting a string for $string; #{type-of($string)} given.";

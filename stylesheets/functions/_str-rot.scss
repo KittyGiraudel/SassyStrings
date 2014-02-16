@@ -1,6 +1,18 @@
+// Rotate all characters from the alphabet in $string by $rot positions
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [number] $rot: number of positions to switch in alphabet
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-rot($string, $rot: 13) {
   @if type-of($string) != "string" {
     @warn "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($rot) != "number" {
+    @warn "`str-rot` function expecting a number for $rot; #{type-of($rot)} given.";
     @return false;
   }
 

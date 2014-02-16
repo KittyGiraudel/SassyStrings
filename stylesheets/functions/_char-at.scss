@@ -1,3 +1,10 @@
+// Return character from $string at $index
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [string] $index: index to inspect
+// ----------------------------------------------------------------------------------------------------
+// @return [string]
+
 @function char-at($string, $index) {
   @if type-of($string) != "string" {
     @warn "`char-at` function expecting a string for $string; #{type-of($string)} given.";

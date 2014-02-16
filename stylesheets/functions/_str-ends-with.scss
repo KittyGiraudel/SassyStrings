@@ -1,3 +1,10 @@
+// Check whether $string ends with $needle
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [string] $needle: substring to check
+// ----------------------------------------------------------------------------------------------------
+// @return [bool]
+
 @function str-ends-with($string, $needle) {
   @if type-of($string) != "string" {
     @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";

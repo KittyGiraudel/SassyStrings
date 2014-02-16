@@ -1,3 +1,10 @@
+// Repeat $string $times times
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [number] $times: number of times to repeat $string
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-repeat($string, $times) {
   @if type-of($string) != "string" {
     @warn "`str-repeat` function expecting a string for $string; #{type-of($string)} given.";

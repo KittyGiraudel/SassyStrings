@@ -1,3 +1,12 @@
+// Replace $old occurrences by $new in $string respecting $case-sensitive
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [string] $old: old substring to replace by $new
+// @param [string] $new: new substring to replace $old
+// @param [bool] $case-sensitive: case-sensitivity
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-replace($string, $old, $new: '', $case-sensitive: true) {
   @if type-of($string) != string or type-of($old) != string or type-of($new) != string {
     @warn "One of the 3 arguments is not a string.";

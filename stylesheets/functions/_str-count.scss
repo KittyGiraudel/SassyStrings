@@ -1,3 +1,10 @@
+// Count the number of occurrences of $needle in $string
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// @param [string] $needle: substring to count in $string
+// ----------------------------------------------------------------------------------------------------
+// @return [number] | false
+
 @function str-count($string, $needle) {
   @if type-of($string) != "string" {
     @warn "`str-count` function expecting a string for $string; #{type-of($string)} given.";

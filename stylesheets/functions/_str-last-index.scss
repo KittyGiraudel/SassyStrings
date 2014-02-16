@@ -1,3 +1,9 @@
+// Return last index of $needle in $string
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// ----------------------------------------------------------------------------------------------------
+// @return [number] | null | false
+
 @function str-last-index($string, $needle) {
   @if type-of($string) != "string" {
     @warn "`str-last-index` function expecting a string for $string; #{type-of($string)} given.";

@@ -1,3 +1,9 @@
+// Capitalize first letter from $strign
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// ----------------------------------------------------------------------------------------------------
+// @return [string] | false
+
 @function str-ucfirst($string) {
   @if type-of($string) != "string" {
     @warn "`str-ucfirst` function expecting a string for $string; #{type-of($string)} given.";

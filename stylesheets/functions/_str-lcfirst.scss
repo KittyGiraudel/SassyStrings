@@ -1,3 +1,9 @@
+// Lower case first character of $string
+// ----------------------------------------------------------------------------------------------------
+// @param [string] $string: string
+// ----------------------------------------------------------------------------------------------------
+// @return [string]
+
 @function str-lcfirst($string) {
   @if type-of($string) != "string" {
     @warn "`str-lcfirst` function expecting a string for $string; #{type-of($string)} given.";
