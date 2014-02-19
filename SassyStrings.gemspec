@@ -19,11 +19,17 @@ Gem::Specification.new do |s|
   s.description = "A collection of Sass functions to manipulate strings."
   s.summary = "Advanced String handling for Sass"
 
-  # Files to Include
-  s.files  =  Dir.glob("lib/**/*.*")
-  s.files +=  Dir.glob("stylesheets/**/*.*")
-  # s.files +=  Dir.glob("templates/**/*.*")
+  # README file
+  s.files = ["README.md"]
 
+  # CHANGELOG
+  s.files += ["CHANGELOG.md"]
+
+  # Library Files
+  s.files += Dir.glob("lib/**/*.*")
+
+  # Sass Files
+  s.files += Dir.glob("stylesheets/**/*.*")
   # Dependent Gems
   s.add_dependency("sass",      [">=3.3"])
   s.add_dependency("compass",   [">=1.0.0"])
