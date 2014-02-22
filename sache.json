@@ -1,5 +1,5 @@
 {
   "name": "SassyStrings",
   "description": "A powerful API to manipulate strings in Sass.",
-  "tags": ["strings", "code-quality", "dry", "performance"]
+  "tags": ["sass", "strings", "string"]
 }
