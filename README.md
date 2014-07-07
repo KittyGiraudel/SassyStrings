@@ -7,7 +7,7 @@ Here is a [Compass Extension](http://compass-style.org/) providing you all funct
 * `char-at($string, $index)`: returns the character from `$string` at index `$index`
 * `levenshtein($a, $b)`: returns the Levenshtein distance betwee `$a` and `$b`
 * `str-count($string, $needle)`: counts number of occurrences of `$needle` in `$string`
-* `str-ends-width($string, $needle)`: returns wether `$string` ends with `$needle`
+* `str-ends-with($string, $needle)`: returns wether `$string` ends with `$needle`
 * `str-explode($string, $separator)`: explodes `$string` on `$separator` occurrences 
 * `str-implode($list)`: implodes `$list` into a string
 * `str-last-index($string, $needle)`: returns last index of `$needle` in `$string`
