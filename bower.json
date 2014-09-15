@@ -1,0 +1,29 @@
+{
+    "name": "SassyStrings",
+    "version": "1.0.0",
+    "homepage": "https://github.com/HugoGiraudel/SassyStrings",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HugoGiraudel/SassyStrings"
+    },
+    "authors": [
+        "Hugo Giraudel"
+    ],
+    "description": "All you ever wanted to deal with strings in Sass.",
+    "main": "stylesheets/_SassyStrings.scss",
+    "keywords": [
+        "sass",
+        "strings",
+        "scss",
+        "plugin",
+        "manipulate"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
