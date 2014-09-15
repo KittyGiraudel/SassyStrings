@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       test: {
         options: {
           style: 'expanded',
-          quiet: 'true',
+          quiet: true,
           loadPath: './node_modules/bootcamp/dist' // or './bower_components/bootcamp/dist'
         },
         files: {
