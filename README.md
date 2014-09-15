@@ -43,3 +43,7 @@ If you feel like an explorer, you can have a look at the code [here](https://git
 * Compass ~> 1.0
 
 Some functions depend on other functions. If you include functions individually, make sure to check for these dependencies in their respective docs.
+
+## Credits
+
+Huge thanks to [Marc Mintel](http://twitter.com/marcmintel) for his help.

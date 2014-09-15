@@ -1,6 +1,6 @@
 {
     "name": "SassyStrings",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "All you ever wanted to deal with strings in Sass.",
     "directories": {
         "test": "test"
