@@ -4,7 +4,7 @@
     "homepage": "https://github.com/HugoGiraudel/SassyStrings",
     "repository": {
         "type": "git",
-        "url": "https://github.com/HugoGiraudel/SassyStrings"
+        "url": "https://github.com/HugoGiraudel/SassyStrings.git"
     },
     "authors": [
         "Hugo Giraudel"
