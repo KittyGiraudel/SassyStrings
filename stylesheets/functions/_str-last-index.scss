@@ -1,8 +1,11 @@
-// Return last index of $needle in $string
-// ----------------------------------------------------------------------------------------------------
-// @param [string] $string: string
-// ----------------------------------------------------------------------------------------------------
-// @return [number] | null | false
+/* 
+ * Return last index of $needle in $string
+ * ---
+ * @param {string} $string - string to search in
+ * @param {string} $needle - substring to search for
+ * ---
+ * @return {number | null | false}
+ */
 
 @function str-last-index($string, $needle) {
   @if type-of($string) != "string" {
