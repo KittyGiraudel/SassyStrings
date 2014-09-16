@@ -11,5 +11,5 @@
  */
 
 @function stringify($literal) {
-    @return call(_ss-stringify, $literal);
+    @return _ss-stringify($literal);
 }

@@ -16,5 +16,5 @@
     @return false;
   }
 
-  @return call(_ss-str-reverse, $string);
+  @return _ss-str-reverse($string);
 }

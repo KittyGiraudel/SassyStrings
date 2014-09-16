@@ -14,5 +14,5 @@
     @if type-of($string) != string {
         @error '$string of str-shuffle must be a string';
     }
-    @return call(_ss-str-shuffle, $string);
+    @return _ss-str-shuffle($string);
 }

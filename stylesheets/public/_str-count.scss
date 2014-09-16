@@ -22,5 +22,5 @@
         @return false;
     }
 
-    @return call(_ss-str-count,$string, $needle);
+    @return _ss-str-count($string, $needle);
 }

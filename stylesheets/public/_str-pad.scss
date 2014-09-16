@@ -29,5 +29,5 @@
     @return false;
   }
 
-  @return call(_ss-str-pad, $string, $length, $pad, $direction);
+  @return _ss-str-pad($string, $length, $pad, $direction);
 }

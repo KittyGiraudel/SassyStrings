@@ -22,5 +22,5 @@
     @return false;
   }
 
-  @return call(_ss-levenshtein, $a, $b);
+  @return _ss-levenshtein($a, $b);
 }

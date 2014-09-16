@@ -17,5 +17,5 @@
     @return false;
   }
 
-  @return call(_ss-str-printf, $string, $elements...);
+  @return _ss-str-printf($string, $elements...);
 }

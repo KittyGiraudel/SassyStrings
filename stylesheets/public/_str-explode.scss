@@ -22,5 +22,5 @@
     @return false;
   }
 
-  @return call(_ss-str-explode, $string, $delimiter);
+  @return _ss-str-explode($string, $delimiter);
 }

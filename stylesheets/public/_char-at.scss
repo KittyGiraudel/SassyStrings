@@ -27,5 +27,5 @@
         @return false;
     }
     
-    @return call(_ss-char-at, $string, $index);
+    @return _ss-char-at($string, $index);
 }

@@ -16,5 +16,5 @@
         @return false;
     }
     
-    @return call(_ss-str-word-count, $string);
+    @return _ss-str-word-count($string);
 }

@@ -16,5 +16,5 @@
     @return false;
   }
 
-  @return call(_ss-str-lcfirst, $string);
+  @return _ss-str-lcfirst($string);
 }

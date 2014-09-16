@@ -22,5 +22,5 @@
     @return false;
   }
 
-  @return call(_ss-str-starts-with, $string, $needle);
+  @return _ss-str-starts-with($string, $needle);
 }

@@ -22,5 +22,5 @@
     @return false;
   }
 
-  @return call(_ss-str-rot, $string, $rot);
+  @return _ss-str-rot($string, $rot);
 }

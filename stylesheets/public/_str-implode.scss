@@ -15,5 +15,5 @@
         @error '$list for str-implode must be a list';
     }
 
-    @return call(_ss-str-implode, $list);
+    @return _ss-str-implode($list);
 }
