@@ -1,0 +1,39 @@
+/*
+ * Replace $old occurrences by $new in $string respecting $case-sensitive
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string         - string
+ * @param {string} $old            - old substring to replace by $new
+ * @param {string} $new            - new substring to replace $old
+ * @param {bool}   $case-sensitive - case-sensitivity
+ * ---
+ * @return {string|false}
+ */
+
+@function str-replace($string, $old, $new: '', $case-sensitive: true) {
+  @if type-of($string) != "string" {
+    @warn "`str-replace` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($old) != "string" {
+    @warn "`str-replace` function expecting a string for $old; #{type-of($old)} given.";
+    @return false;
+  }
+
+  @if type-of($new) != "string" {
+    @warn "`str-replace` function expecting a string for $new; #{type-of($new)} given.";
+    @return false;
+  }
+
+  @if str-index($new, $old) {
+    @warn "The string to be replaced is contained in the new string. Infinite recursion avoided.";
+    @return $string;
+  }
+
+  @return call(_ss-str-replace, $string, $old, $new, $case-sensitive);
+}
+

@@ -1,0 +1,27 @@
+/* 
+ * Return last index of $needle in $string
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string to search in
+ * @param {string} $needle - substring to search for
+ * ---
+ * @return {number}
+ */
+
+@function _ss-str-last-index($string, $needle) {
+  $index: str-index($string, $needle);
+  $result: $index;
+
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $i;
+      }
+    }
+  }
+
+  @return $result;
+}

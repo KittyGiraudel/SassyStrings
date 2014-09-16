@@ -1,0 +1,41 @@
+/*
+ * Split $string into several parts using $delimiter
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string    - string to split
+ * @param {string} $delimiter - string to use as a delimiter to split $string
+ * ---
+ * @return {list}
+ */
+
+@function _ss-str-explode($string, $delimiter: '') {
+    $result: ();
+    $length: str-length($string);
+
+    @if str-length($delimiter) == 0 {
+        @for $i from 1 through $length {
+            $result: append($result, str-slice($string, $i, $i));
+        }
+        @return $result;
+    }
+
+    $running: true;
+    $remaining: $string;
+
+    @while $running {
+        $index: str-index($remaining, $delimiter);
+        @if $index {
+            $slice: str-slice($remaining, 1, $index - 1);
+            $result: append($result, $slice);
+            $remaining: str-slice($remaining, $index + str-length($delimiter));
+        }
+        @else {
+            $running: false;
+        }
+    }
+
+    @return append($result, $remaining);
+}

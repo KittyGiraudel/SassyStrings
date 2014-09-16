@@ -1,17 +1,16 @@
 /*
  * Count number of words in $string
  * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
  * @param {string} $string - string to check
  * ---
  * @return {string|false}
  */
 
-@function str-word-count($string) {
-    @if type-of($string) != "string" {
-        @warn "`str-word-count` function expecting a string for $string; #{type-of($string)} given.";
-        @return false;
-    }
-    
+@function _ss-str-word-count($string) {
     @if $string == '' {
         @return 0;
     }

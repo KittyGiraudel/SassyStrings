@@ -1,7 +1,11 @@
 /* 
  * Capitalize first letter from $string
  * ---
- * @param {string} $string - string for capitalization
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string - string to capitalize first letter from
  * ---
  * @return {string | false}
  */
@@ -12,5 +16,5 @@
     @return false;
   }
 
-  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+  @return call(_ss-str-ucfirst, $string);
 }

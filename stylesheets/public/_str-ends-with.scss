@@ -1,0 +1,26 @@
+/*
+ * Check whether $string ends with $needle
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string - string to check
+ * @param {string} $needle - substring to check
+ * ---
+ * @return {bool}
+ */
+
+@function str-ends-with($string, $needle) {
+  @if type-of($string) != "string" {
+    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($needle) != "string" {
+    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
+    @return false;
+  }
+
+  @return call(_ss-str-ends-with, $string, $needle);
+}

@@ -43,3 +43,7 @@ If you feel like an explorer, you can have a look at the code [here](https://git
 * Compass ~> 1.0
 
 Some functions depend on other functions. If you include functions individually, make sure to check for these dependencies in their respective docs.
+
+## Advanced usage
+If you experience naming conflicts or want to add your own error handling and dependency checker feel free to use the functions in `stylesheets/private`.
+These functions do not add any kind of error handling so use them at your own risk!
