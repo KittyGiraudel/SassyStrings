@@ -1,0 +1,26 @@
+/*
+ * Cast anything to string
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {literal} $literal: number to cast to string
+ * ---
+ * @return {string}
+ */
+
+@function _ss-stringify($literal) {
+    $result: "";
+
+    @if length($literal) == 1 {
+        $result: $literal + unquote("");
+    } @else {
+        @each $item in $literal {
+            $result: $result + stringify($item);
+        }
+    }
+
+    @return quote($result);
+    
+}

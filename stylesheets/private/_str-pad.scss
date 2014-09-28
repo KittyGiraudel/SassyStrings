@@ -1,0 +1,36 @@
+/*
+ * Pad $string from $direction with $pad to reach $length characters
+ * ---
+ * @access public
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string    - string to pad
+ * @param {number} $length    - number of characters to go for in returned string
+ * @param {string} $pad       - string to use to pad $string
+ * @param {string} $direction - direction left or right for padding
+ * ---
+ * @return {string}
+ */
+
+@function _ss-str-pad($string, $length, $pad: " ", $direction: left) {
+  $direction: if(index(left right, $direction), $direction, left);
+  $new-string: $string;
+  $index: 1;
+
+  @if $length > str-length($string) {
+    @while str-length($new-string) < $length {
+      $remains: $length - str-length($new-string);
+      $pad: if($remains < str-length($pad), str-slice($pad, 1, $remains), $pad);
+      @if $direction == left {
+        $new-string: str-insert($new-string, $pad, $index);
+        $index: $index + str-length($pad);
+      }
+      @else {
+        $new-string: $new-string + $pad;
+      }
+    }
+  }
+
+  @return $new-string;
+}

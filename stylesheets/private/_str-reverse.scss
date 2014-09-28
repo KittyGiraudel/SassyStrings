@@ -1,0 +1,21 @@
+/*
+ * Reverse $string
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string to reverse
+ * ---
+ * @return {string} 
+ */
+
+@function _ss-str-reverse($string) {
+  $result: "";
+
+  @for $i from str-length($string) * -1 through -1 {
+    $result: $result + str-slice($string, abs($i), abs($i));
+  }
+
+  @return $result;
+}

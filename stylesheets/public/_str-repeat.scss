@@ -1,0 +1,26 @@
+/*
+ * Repeat $string $times times
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string - string to repeat
+ * @param {number} $times  - number of times to repeat $string
+ * ---
+ * @return {string|false}
+ */
+
+@function str-repeat($string, $times) {
+  @if type-of($string) != "string" {
+    @warn "`str-repeat` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($times) != "number" {
+    @warn "`str-repeat` function expecting a number for $times; #{type-of($times)} given.";
+    @return false;
+  }
+
+  @return _ss-str-repeat($string, $times);
+}

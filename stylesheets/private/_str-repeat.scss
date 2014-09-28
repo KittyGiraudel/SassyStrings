@@ -1,0 +1,22 @@
+/*
+ * Repeat $string $times times
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string to repeat
+ * @param {number} $times  - number of times to repeat $string
+ * ---
+ * @return {string|false}
+ */
+
+@function _ss-str-repeat($string, $times) {
+  $result: "";
+
+  @for $i from 1 through $times {
+    $result: $result + $string;
+  }
+
+  @return $result;
+}

@@ -1,0 +1,27 @@
+/*
+ * Count the number of occurrences of $needle in $string
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string
+ * @param {string} $needle - substring to count in $string
+ * ---
+ * @return {number}
+ */
+
+@function _ss-str-count($string, $needle) {
+    $index: str-index($string, $needle);
+    $result: if($index, 1, 0);
+
+    @if $index {
+        @for $i from $index + str-length($needle) through str-length($string) {
+            @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+                $result: $result + 1;
+            }
+        }
+    }
+
+    @return $result;
+}
