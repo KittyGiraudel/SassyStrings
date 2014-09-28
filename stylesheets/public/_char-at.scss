@@ -1,0 +1,31 @@
+/*
+ * Return character from $string at $index
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string - string to check
+ * @param {string} $index  - index to inspect
+ * ---
+ * @return {string}
+ */
+
+@function char-at($string, $index) {
+    @if type-of($string) != "string" {
+        @warn "`char-at` function expecting a string for $string; #{type-of($string)} given.";
+        @return false;
+    }
+
+    @if type-of($index) != "number" {
+        @warn "`char-at` function expecting a number for $index; #{type-of($index)} given.";
+        @return false;
+    }
+
+    @if $index < 1 or $index > str-length($string) {
+        @warn "Out of bounds $index for `char-at`.";
+        @return false;
+    }
+    
+    @return _ss-char-at($string, $index);
+}

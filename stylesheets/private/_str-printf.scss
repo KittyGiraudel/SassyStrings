@@ -1,0 +1,29 @@
+/*
+ * Replace occurrences of %s in $string by $elements
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string}  $string   - string to check
+ * @param {arglist} $elements - strings to use for replacements in %s
+ * ---
+ * @return {string}
+ */
+
+@function _ss-str-printf($string, $elements...) {
+  $breaker: '%s'; 
+  $result: $string;
+
+  @for $i from 1 through length($elements) {
+    $index: str-index($result, $breaker);
+    @if $index {
+      $result: str-slice($result, 1, $index - 1) + stringify(nth($elements, $i)) + str-slice($result, $index + str-length($breaker));
+    }
+    @else {
+      @return $result;
+    }
+  }
+
+  @return $result;
+}

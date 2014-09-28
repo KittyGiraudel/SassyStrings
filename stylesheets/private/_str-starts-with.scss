@@ -1,0 +1,16 @@
+/*
+ * Check whether $string stars with $needle
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string to check
+ * @param {string} $needle - substring to check
+ * ---
+ * @return {bool}
+ */
+
+@function _ss-str-starts-with($string, $needle) {
+  @return str-slice($string, 1, str-length($needle)) == $needle;
+}

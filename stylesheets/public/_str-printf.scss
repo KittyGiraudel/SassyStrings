@@ -1,0 +1,21 @@
+/*
+ * Replace occurrences of %s in $string by $elements
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string}  $string   - string to check
+ * @param {arglist} $elements - strings to use for replacements in %s
+ * ---
+ * @return {string | false}
+ */
+
+@function str-printf($string, $elements...) {
+  @if type-of($string) != "string" {
+    @warn "`str-printf` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @return _ss-str-printf($string, $elements...);
+}

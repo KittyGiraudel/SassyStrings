@@ -1,0 +1,15 @@
+/*
+ * Lower case first character of $string
+ * ---
+ * @access private
+ * ---
+ * @since 1.2.0
+ * ---
+ * @param {string} $string - string to lower the first character
+ * ---
+ * @return {string}
+ */
+
+@function _ss-str-lcfirst($string) {
+  @return to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

@@ -1,0 +1,26 @@
+/*
+ * Rotate all characters from the alphabet in $string by $rot positions
+ * ---
+ * @access public
+ * ---
+ * @since 1.0.0
+ * ---
+ * @param {string} $string - string to rotate
+ * @param {number} $rot    - number of positions to switch in alphabet
+ * ---
+ * @return {string|false}
+ */
+
+@function str-rot($string, $rot: 13) {
+  @if type-of($string) != "string" {
+    @warn "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
+    @return false;
+  }
+
+  @if type-of($rot) != "number" {
+    @warn "`str-rot` function expecting a number for $rot; #{type-of($rot)} given.";
+    @return false;
+  }
+
+  @return _ss-str-rot($string, $rot);
+}
