@@ -4,8 +4,8 @@ extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 Compass::Frameworks.register("SassyStrings", :path => "#{File.dirname(__FILE__)}/..")
 
 module SassyStrings
-  VERSION = "1.0.1"
-  DATE = "2014-02-16"
+  VERSION = "1.1.0"
+  DATE = "2014-09-28"
 end
 
 # Sassy String Functions
