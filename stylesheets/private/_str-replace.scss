@@ -25,7 +25,7 @@
       }
     }
 
-    @return quote(str-replace(str-insert($result, $new, $index), $old, $new, $case-sensitive)); 
+    @return quote(_ss-str-replace(str-insert($result, $new, $index), $old, $new, $case-sensitive)); 
   }
 
   @return $string;
