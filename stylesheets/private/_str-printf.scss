@@ -18,7 +18,7 @@
   @for $i from 1 through length($elements) {
     $index: str-index($result, $breaker);
     @if $index {
-      $result: str-slice($result, 1, $index - 1) + stringify(nth($elements, $i)) + str-slice($result, $index + str-length($breaker));
+      $result: str-slice($result, 1, $index - 1) + _ss-stringify(nth($elements, $i)) + str-slice($result, $index + str-length($breaker));
     }
     @else {
       @return $result;
