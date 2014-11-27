@@ -31,6 +31,6 @@ Gem::Specification.new do |s|
   # Sass Files
   s.files += Dir.glob("stylesheets/**/*.*")
   # Dependent Gems
-  s.add_dependency("sass",      [">=3.3"])
+  s.add_dependency("sass",      [">=3.4"])
   s.add_dependency("compass",   [">=1.0.0.alpha.18"])
 end
