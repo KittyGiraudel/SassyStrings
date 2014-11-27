@@ -1,5 +1,6 @@
 # Changelog
 
+* `1.1.3`: bumped Sass dependency to 3.4.x
 * `1.1.2`: fixed an error when using private functions
 * `1.1.1`: fixed an error when using private functions
 * `1.1.0`: dissociated error checking from function logic, and added some missing imports

@@ -2,13 +2,13 @@
 
 Here is a [Compass Extension](http://compass-style.org/) providing you all functions you need to manipulate your [Sass](http://sass-lang.com/) strings.
 
-## What's in there? 
+## What's in there?
 
 * `char-at($string, $index)`: returns the character from `$string` at index `$index`
 * `levenshtein($a, $b)`: returns the Levenshtein distance betwee `$a` and `$b`
 * `str-count($string, $needle)`: counts number of occurrences of `$needle` in `$string`
 * `str-ends-with($string, $needle)`: returns wether `$string` ends with `$needle`
-* `str-explode($string, $separator)`: explodes `$string` on `$separator` occurrences 
+* `str-explode($string, $separator)`: explodes `$string` on `$separator` occurrences
 * `str-implode($list)`: implodes `$list` into a string
 * `str-last-index($string, $needle)`: returns last index of `$needle` in `$string`
 * `str-lcfirst($string)`: turns first letter of `$string` into lower case
@@ -22,7 +22,7 @@ Here is a [Compass Extension](http://compass-style.org/) providing you all funct
 * `str-split($string)`: splits `$string` into a list of characters
 * `str-starts-width($string, $needle)`: returns wether `$string` starts with `$needle`
 * `str-trim($string)`: removes white spaces before and after `$string`
-* `str-ucfirst($string)`: turns first letter of `$string` into upper case 
+* `str-ucfirst($string)`: turns first letter of `$string` into upper case
 * `str-word-count($string)`: counts number of words in `$string`
 * `stringify($literal)`: casts to stringify
 
@@ -39,7 +39,7 @@ If you feel like an explorer, you can have a look at the code [here](https://git
 
 ## Requirements
 
-* Sass ~> 3.3.0
+* Sass ~> 3.4.0
 * Compass ~> 1.0
 
 Some functions depend on other functions. If you include functions individually, make sure to check for these dependencies in their respective docs.
