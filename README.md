@@ -5,9 +5,9 @@ Here is a [Compass Extension](http://compass-style.org/) providing you all funct
 ## What's in there?
 
 * `char-at($string, $index)`: returns the character from `$string` at index `$index`
-* `levenshtein($a, $b)`: returns the Levenshtein distance betwee `$a` and `$b`
+* `levenshtein($a, $b)`: returns the Levenshtein distance between `$a` and `$b`
 * `str-count($string, $needle)`: counts number of occurrences of `$needle` in `$string`
-* `str-ends-with($string, $needle)`: returns wether `$string` ends with `$needle`
+* `str-ends-with($string, $needle)`: returns whether `$string` ends with `$needle`
 * `str-explode($string, $separator)`: explodes `$string` on `$separator` occurrences
 * `str-implode($list)`: implodes `$list` into a string
 * `str-last-index($string, $needle)`: returns last index of `$needle` in `$string`
@@ -20,7 +20,7 @@ Here is a [Compass Extension](http://compass-style.org/) providing you all funct
 * `str-rot($string, $rot: 13)`: rotates letters in `$string` of `$rot` position in alphabet
 * `str-shuffle($string)`: shuffles letters in string
 * `str-split($string)`: splits `$string` into a list of characters
-* `str-starts-width($string, $needle)`: returns wether `$string` starts with `$needle`
+* `str-starts-with($string, $needle)`: returns whether `$string` starts with `$needle`
 * `str-trim($string)`: removes white spaces before and after `$string`
 * `str-ucfirst($string)`: turns first letter of `$string` into upper case
 * `str-word-count($string)`: counts number of words in `$string`
