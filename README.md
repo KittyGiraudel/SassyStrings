@@ -15,7 +15,7 @@ Here is a [Compass Extension](http://compass-style.org/) providing you all funct
 * `str-pad($string, $length, $pad: " ", $direction: left)`: pads `$string` with `$pad` to match `$length` starting from `$direction`
 * `str-printf($string, $elements...)`: replaces occurrences of `%s` in `$string` by elements from `$elements`
 * `str-repeat($string, $times)`: repeats `$string` `$times` times
-* `str-replace($string, $old, $new: "", $case-sensitive: true)`: replaces `$old` by `$new` in `$string` respecting `$case-sensitive`
+* `str-replace($string, $old, $new: "")`: replaces `$old` by `$new` in `$string` respecting `$case-sensitive`
 * `str-reverse($string)`: reverses string
 * `str-rot($string, $rot: 13)`: rotates letters in `$string` of `$rot` position in alphabet
 * `str-shuffle($string)`: shuffles letters in string
