@@ -4,7 +4,7 @@
 /// @param {String} $string - string to shuffle
 /// @return {String}
 @function _ss-str-shuffle($string) {
-    @return str-implode(_ss-shuffle(str-explode($string)));
+  @return str-implode(_ss-shuffle(str-explode($string)));
 }
 
 /// Shuffle a list
@@ -12,12 +12,13 @@
 /// @param {List} $list - shuffle a list
 /// @return {List}
 @function _ss-shuffle($list) {
-    @for $i from -1 * length($list) through -1 {
-        $i: abs($i);
-        $j: random(length($list) - 1) + 1;
-        $tmp: nth($list, $i);
-        $list: set-nth($list, $i, nth($list, $j));
-        $list: set-nth($list, $j, $tmp);
-    }
-    @return $list;
+  @for $i from -1 * length($list) through -1 {
+    $i: abs($i);
+    $j: random(length($list) - 1) + 1;
+    $tmp: nth($list, $i);
+    $list: set-nth($list, $i, nth($list, $j));
+    $list: set-nth($list, $j, $tmp);
+  }
+
+  @return $list;
 }

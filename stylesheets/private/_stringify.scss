@@ -4,16 +4,15 @@
 /// @param {*} `$literal` - number to cast to string
 /// @return {String}
 @function _ss-stringify($literal) {
-    $result: "";
+  $result: "";
 
-    @if length($literal) == 1 {
-        $result: $literal + unquote("");
-    } @else {
-        @each $item in $literal {
-            $result: $result + stringify($item);
-        }
+  @if length($literal) == 1 {
+    $result: $literal + unquote("");
+  } @else {
+    @each $item in $literal {
+      $result: $result + stringify($item);
     }
+  }
 
-    @return quote($result);
-
+  @return quote($result);
 }

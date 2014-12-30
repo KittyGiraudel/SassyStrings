@@ -5,16 +5,16 @@
 /// @param {String} $needle - substring to count in `$string`
 /// @return {Number}
 @function _ss-str-count($string, $needle) {
-    $index: str-index($string, $needle);
-    $result: if($index, 1, 0);
+  $index: str-index($string, $needle);
+  $result: if($index, 1, 0);
 
-    @if $index {
-        @for $i from $index + str-length($needle) through str-length($string) {
-            @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
-                $result: $result + 1;
-            }
-        }
+  @if $index {
+    @for $i from $index + str-length($needle) through str-length($string) {
+      @if str-slice($string, $i, $i + str-length($needle) - 1) == $needle {
+        $result: $result + 1;
+      }
     }
+  }
 
-    @return $result;
+  @return $result;
 }

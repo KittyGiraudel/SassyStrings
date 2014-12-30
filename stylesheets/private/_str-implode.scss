@@ -4,11 +4,11 @@
 /// @param {List} $list - list to convert to string
 /// @return {String}
 @function _ss-str-implode($list) {
-    $result: "";
+  $result: "";
 
-    @each $item in $list {
-        $result: $result + if(length($item) > 1, str-implode($item), $item);
-    }
+  @each $item in $list {
+    $result: $result + if(length($item) > 1, str-implode($item), $item);
+  }
 
-    @return $result;
+  @return $result;
 }

@@ -5,41 +5,41 @@
 /// @param {String} $b - second string
 /// @return {Number}
 @function _ss-levenshtein($a, $b) {
-    $a: to-lower-case($a);
-    $b: to-lower-case($b);
+  $a: to-lower-case($a);
+  $b: to-lower-case($b);
 
-    $n: str-length($a);
-    $m: str-length($b);
+  $n: str-length($a);
+  $m: str-length($b);
 
-    $matrix: _ss-matrix($n + 1, $m + 1);
-    $cost: _ss-matrix($n, $m);
+  $matrix: _ss-matrix($n + 1, $m + 1);
+  $cost: _ss-matrix($n, $m);
 
-    @if $a == $b { @return 0; }
-    @if $n == 0  { @return $m; }
-    @if $m == 0  { @return $n; }
+  @if $a == $b { @return 0; }
+  @if $n == 0  { @return $m; }
+  @if $m == 0  { @return $n; }
 
-    @for $i from 0 through $n  {
-        @for $j from 0 through $m  {
-            $v: if($i == 0, $j, if($j == 0, $i, 0));
-            @if $v != 0 {
-                $matrix: _ss-set-matrix($matrix, $i + 1, $j + 1, $v);
-            }
-            @if $i != 0 and $j != 0 {
-                $v: if(str-slice($a, $i, $i) == str-slice($b, $j, $j), 0, 1);
-                @if $v != 0 {
-                    $cost: _ss-set-matrix($cost, $i, $j, $v);
-                }
-            }
+  @for $i from 0 through $n  {
+    @for $j from 0 through $m  {
+      $v: if($i == 0, $j, if($j == 0, $i, 0));
+      @if $v != 0 {
+        $matrix: _ss-set-matrix($matrix, $i + 1, $j + 1, $v);
+      }
+      @if $i != 0 and $j != 0 {
+        $v: if(str-slice($a, $i, $i) == str-slice($b, $j, $j), 0, 1);
+        @if $v != 0 {
+          $cost: _ss-set-matrix($cost, $i, $j, $v);
         }
+      }
     }
+  }
 
-    @for $i from 2 through length($matrix) {
-        @for $j from 2 through length(nth($matrix, $i)) {
-            $matrix: _ss-set-matrix($matrix, $i, $j, min(_ss-e($matrix, $i - 1, $j) + 1, _ss-e($matrix, $i, $j - 1) + 1, _ss-e($matrix, $i - 1, $j - 1) + _ss-e($cost, $i - 1, $j - 1)));
-        }
+  @for $i from 2 through length($matrix) {
+    @for $j from 2 through length(nth($matrix, $i)) {
+      $matrix: _ss-set-matrix($matrix, $i, $j, min(_ss-e($matrix, $i - 1, $j) + 1, _ss-e($matrix, $i, $j - 1) + 1, _ss-e($matrix, $i - 1, $j - 1) + _ss-e($cost, $i - 1, $j - 1)));
     }
+  }
 
-    @return _ss-e($matrix, length($matrix), length(nth($matrix, 1)));
+  @return _ss-e($matrix, length($matrix), length(nth($matrix, 1)));
 }
 
 /// Helper to target an element in a matrix
@@ -49,7 +49,7 @@
 /// @param {Number} $y - y coord
 /// @return {Number}
 @function _ss-e($m, $x, $y) {
-    @return nth(nth($m, $x), $y);
+  @return nth(nth($m, $x), $y);
 }
 
 /// Helper instanciation a matrix of $x by $y
@@ -58,15 +58,19 @@
 /// @param {Number} $y - number of lines
 /// @return {List}
 @function _ss-matrix($x, $y) {
-    $matrix: ();
-    @for $i from 1 through $x {
-        $tmp: ();
-        @for $y from 1 through $y {
-            $tmp: append($tmp, 0)
-        }
-        $matrix: append($matrix, $tmp);
+  $matrix: ();
+
+  @for $i from 1 through $x {
+    $tmp: ();
+
+    @for $y from 1 through $y {
+      $tmp: append($tmp, 0)
     }
-    @return $matrix;
+
+    $matrix: append($matrix, $tmp);
+  }
+
+  @return $matrix;
 }
 
 /// Helper assigning $value at $matrix[$x, $y]

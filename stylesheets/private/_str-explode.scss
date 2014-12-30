@@ -5,30 +5,30 @@
 /// @param {String} $delimiter ('') - string to use as a delimiter to split `$string`
 /// @return {List}
 @function _ss-str-explode($string, $delimiter: '') {
-    $result: ();
-    $length: str-length($string);
+  $result: ();
+  $length: str-length($string);
 
-    @if str-length($delimiter) == 0 {
-        @for $i from 1 through $length {
-            $result: append($result, str-slice($string, $i, $i));
-        }
-        @return $result;
+  @if str-length($delimiter) == 0 {
+    @for $i from 1 through $length {
+      $result: append($result, str-slice($string, $i, $i));
     }
+    @return $result;
+  }
 
-    $running: true;
-    $remaining: $string;
+  $running: true;
+  $remaining: $string;
 
-    @while $running {
-        $index: str-index($remaining, $delimiter);
-        @if $index {
-            $slice: str-slice($remaining, 1, $index - 1);
-            $result: append($result, $slice);
-            $remaining: str-slice($remaining, $index + str-length($delimiter));
-        }
-        @else {
-            $running: false;
-        }
+  @while $running {
+    $index: str-index($remaining, $delimiter);
+    @if $index {
+      $slice: str-slice($remaining, 1, $index - 1);
+      $result: append($result, $slice);
+      $remaining: str-slice($remaining, $index + str-length($delimiter));
     }
+    @else {
+      $running: false;
+    }
+  }
 
-    @return append($result, $remaining);
+  @return append($result, $remaining);
 }

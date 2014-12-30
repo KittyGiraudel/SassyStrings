@@ -5,5 +5,5 @@
 /// @param {String} $index  - index to inspect
 /// @return {String}
 @function _ss-char-at($string, $index) {
-    @return str-slice($string, $index, $index);
+  @return str-slice($string, $index, $index);
 }
