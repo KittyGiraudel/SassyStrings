@@ -1,24 +1,19 @@
-@function str-replace($string, $old, $new: '', $case-sensitive: true) {
+@function str-replace($string, $search, $replace: '') {
   @if type-of($string) != "string" {
     @warn "`str-replace` function expecting a string for $string; #{type-of($string)} given.";
     @return false;
   }
 
-  @if type-of($old) != "string" {
-    @warn "`str-replace` function expecting a string for $old; #{type-of($old)} given.";
+  @if type-of($search) != "string" {
+    @warn "`str-replace` function expecting a string for $search; #{type-of($search)} given.";
     @return false;
   }
 
-  @if type-of($new) != "string" {
-    @warn "`str-replace` function expecting a string for $new; #{type-of($new)} given.";
+  @if type-of($replace) != "string" {
+    @warn "`str-replace` function expecting a string for $replace; #{type-of($replace)} given.";
     @return false;
   }
 
-  @if str-index($new, $old) {
-    @warn "The string to be replaced is contained in the new string. Infinite recursion avoided.";
-    @return $string;
-  }
-
-  @return _ss-str-replace($string, $old, $new, $case-sensitive);
+  @return _ss-str-replace($string, $search, $replace);
 }
 

@@ -1,26 +1,16 @@
-/// Replace `$old` occurrences by `$new` in `$string` respecting `$case-sensitive`
+/// Replace `$search` with `$replace` in `$string`
 /// @access private
 /// @since 1.2.0
-/// @param {String} $string                - string
-/// @param {String} $old                   - old substring to replace by `$new`
-/// @param {String} $new            ("")   - new substring to replace `$old`
-/// @param {Bool}   $case-sensitive (true) - case-sensitivity
-/// @return {String}
-@function _ss-str-replace($string, $old, $new: '', $case-sensitive: true) {
-  $index: if(not $case-sensitive, str-index(to-lower-case($string), to-lower-case($old)),  str-index($string, $old));
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function _ss-str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
 
-  @if $index and $new != $old {
-    $result: if($index != 1, quote(str-slice($string, 1, $index - 1)), '');
-
-    @for $i from $index through str-length($string) {
-      @if $i < $index or $i >= $index + str-length($old) {
-        $result: $result + str-slice($string, $i, $i);
-      }
-    }
-
-    @return quote(_ss-str-replace(str-insert($result, $new, $index), $old, $new, $case-sensitive));
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + _ss-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
   @return $string;
 }
-
