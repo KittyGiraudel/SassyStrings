@@ -5,7 +5,7 @@
 /// @param {Arglist} $elements - strings to use for replacements in `%s`
 /// @return {String}
 @function _ss-str-printf($string, $elements...) {
-  $breaker: '%s';
+  $breaker: "%s";
   $result: $string;
 
   @for $i from 1 through length($elements) {

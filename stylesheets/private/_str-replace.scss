@@ -3,9 +3,9 @@
 /// @since 1.2.0
 /// @param {String} $string - Initial string
 /// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
+/// @param {String} $replace ("") - New value
 /// @return {String} - Updated string
-@function _ss-str-replace($string, $search, $replace: '') {
+@function _ss-str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 
   @if $index {

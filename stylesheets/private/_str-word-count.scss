@@ -4,7 +4,7 @@
 /// @param {String} $string - string to check
 /// @return {String | false}
 @function _ss-str-word-count($string) {
-    @if $string == '' {
+    @if $string == "" {
         @return 0;
     }
 

@@ -4,7 +4,7 @@
 /// @param {String} $string    - string to split
 /// @param {String} $delimiter ('') - string to use as a delimiter to split `$string`
 /// @return {List}
-@function _ss-str-explode($string, $delimiter: '') {
+@function _ss-str-explode($string, $delimiter: "") {
   $result: ();
   $length: str-length($string);
 
