@@ -6,8 +6,8 @@
 @function _ss-str-reverse($string) {
   $result: "";
 
-  @for $i from str-length($string) * -1 through -1 {
-    $result: $result + str-slice($string, abs($i), abs($i));
+  @for $i from str-length($string) through 1 {
+    $result: $result + str-slice($string, $i, $i);
   }
 
   @return $result;
