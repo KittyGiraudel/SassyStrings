@@ -1,15 +1,8 @@
-/* 
- * Capitalize first letter from $string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string for capitalization
- * ---
- * @return {string}
- */
-
+/// Capitalize first letter from `$string`
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string - string for capitalization
+/// @return {String}
 @function _ss-str-ucfirst($string) {
   @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
 }

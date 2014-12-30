@@ -1,18 +1,3 @@
-/*
- * Pad $string from $direction with $pad to reach $length characters
- * ---
- * @access public
- * ---
- * @since 1.0.0
- * ---
- * @param {string} $string    - string to pad
- * @param {number} $length    - number of characters to go for in returned string
- * @param {string} $pad       - string to use to pad $string
- * @param {string} $direction - direction left or right for padding
- * ---
- * @return {string|false}
- */
-
 @function str-pad($string, $length, $pad: " ", $direction: left) {
   @if type-of($string) != "string" {
     @warn "`str-pad` function expecting a string for $string; #{type-of($string)} given.";

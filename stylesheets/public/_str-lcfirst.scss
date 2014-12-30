@@ -1,15 +1,3 @@
-/*
- * Lower case first character of $string
- * ---
- * @access public
- * ---
- * @since 1.0.0
- * ---
- * @param {string} $string - string to lower the first character
- * ---
- * @return {string}
- */
-
 @function str-lcfirst($string) {
   @if type-of($string) != "string" {
     @warn "`str-lcfirst` function expecting a string for $string; #{type-of($string)} given.";

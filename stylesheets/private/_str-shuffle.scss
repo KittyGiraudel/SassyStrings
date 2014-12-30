@@ -1,29 +1,16 @@
-/*
- * Shuffle characters from $string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string to shuffle
- * ---
- * @return {string}
- */
-
+/// Shuffle characters from `$string`
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string - string to shuffle
+/// @return {String}
 @function _ss-str-shuffle($string) {
     @return str-implode(_ss-shuffle(str-explode($string)));
 }
 
-/*
- * Shuffle a list
- * ---
- * @access private
- * ---
- * @param {list} $list - shuffle a list
- * ---
- * @return {list}
- */
-
+/// Shuffle a list
+/// @access private
+/// @param {List} $list - shuffle a list
+/// @return {List}
 @function _ss-shuffle($list) {
     @for $i from -1 * length($list) through -1 {
         $i: abs($i);

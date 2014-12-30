@@ -1,16 +1,3 @@
-/*
- * Calculating Levenshtein distance between two strings
- * ---
- * @access public
- * ---
- * @since 1.0.0
- * ---
- * @param {string} $a - first string
- * @param {string} $b - second string
- * ---
- * @return {number}
- */
-
 @function levenshtein($a, $b) {
   @if type-of($a) != "string" {
     @warn "`str-count` function expecting a string for $a; #{type-of($a)} given.";

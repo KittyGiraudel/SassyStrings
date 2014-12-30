@@ -1,15 +1,8 @@
-/*
- * Remove all trailing and leading whitespaces from $string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string
- * ---
- * @return {string}
- */
-
+/// Remove all trailing and leading whitespaces from `$string`
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string - string
+/// @return {String}
 @function _ss-str-trim($string) {
   $start: 1;
   $end: str-length($string);

@@ -1,15 +1,8 @@
-/*
- * Count number of words in $string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string to check
- * ---
- * @return {string|false}
- */
-
+/// Count number of words in `$string`
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string - string to check
+/// @return {String | false}
 @function _ss-str-word-count($string) {
     @if $string == '' {
         @return 0;

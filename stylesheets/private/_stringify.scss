@@ -1,15 +1,8 @@
-/*
- * Cast anything to string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {literal} $literal: number to cast to string
- * ---
- * @return {string}
- */
-
+/// Cast anything to string
+/// @access private
+/// @since 1.2.0
+/// @param {*} `$literal` - number to cast to string
+/// @return {String}
 @function _ss-stringify($literal) {
     $result: "";
 
@@ -22,5 +15,5 @@
     }
 
     @return quote($result);
-    
+
 }

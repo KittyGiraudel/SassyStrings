@@ -1,15 +1,8 @@
-/*
- * Reverse $string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string to reverse
- * ---
- * @return {string} 
- */
-
+/// Reverse `$string`
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string - string to reverse
+/// @return {String}
 @function _ss-str-reverse($string) {
   $result: "";
 

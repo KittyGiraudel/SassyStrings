@@ -1,16 +1,9 @@
-/*
- * Rotate all characters from the alphabet in $string by $rot positions
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string - string to rotate
- * @param {number} $rot    - number of positions to switch in alphabet
- * ---
- * @return {string}
- */
-
+/// Rotate all characters from the alphabet in `$string` by `$rot` positions
+/// @access private
+/// @since 1.2.0
+/// @param {String} $string   - string to rotate
+/// @param {Number} $rot (13) - number of positions to switch in alphabet
+/// @return {String}
 @function _ss-str-rot($string, $rot: 13) {
   $alphabet: a b c d e f g h i j k l m n o p q r s t u v w x y z;
   $result: "";
@@ -20,9 +13,9 @@
     $char: str-slice($string, $i, $i);
     $index: index($alphabet, to-lower-case($char));
     $is-caps: $index and (index($alphabet, to-lower-case($char)) != index($alphabet, $char));
-    $new-char: if($index, 
-      if($index + $rot > length($alphabet), 
-        nth($alphabet, $index + $rot - length($alphabet)), 
+    $new-char: if($index,
+      if($index + $rot > length($alphabet),
+        nth($alphabet, $index + $rot - length($alphabet)),
         nth($alphabet, $index + $rot)
       ),
       $char

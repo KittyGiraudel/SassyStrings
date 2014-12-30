@@ -1,16 +1,3 @@
-/*
- * Check whether $string stars with $needle
- * ---
- * @access public
- * ---
- * @since 1.0.0
- * ---
- * @param {string} $string - string to check
- * @param {string} $needle - substring to check
- * ---
- * @return {bool|false}
- */
-
 @function str-starts-with($string, $needle) {
   @if type-of($string) != "string" {
     @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";

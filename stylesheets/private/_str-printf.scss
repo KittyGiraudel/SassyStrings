@@ -1,18 +1,11 @@
-/*
- * Replace occurrences of %s in $string by $elements
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {string}  $string   - string to check
- * @param {arglist} $elements - strings to use for replacements in %s
- * ---
- * @return {string}
- */
-
+/// Replace occurrences of `%s` in `$string` by `$elements`
+/// @access private
+/// @since 1.2.0
+/// @param {String}  $string   - string to check
+/// @param {Arglist} $elements - strings to use for replacements in `%s`
+/// @return {String}
 @function _ss-str-printf($string, $elements...) {
-  $breaker: '%s'; 
+  $breaker: '%s';
   $result: $string;
 
   @for $i from 1 through length($elements) {

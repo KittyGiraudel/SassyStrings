@@ -1,15 +1,3 @@
-/*
- * Shuffle characters from $string
- * ---
- * @access public
- * ---
- * @since 1.0.0
- * ---
- * @param {string} $string - string to shuffle
- * ---
- * @return {string}
- */
-
 @function str-shuffle($string) {
     @if type-of($string) != string {
         @error '$string of str-shuffle must be a string';

@@ -1,18 +1,11 @@
-/*
- * Pad $string from $direction with $pad to reach $length characters
- * ---
- * @access public
- * ---
- * @since 1.2.0
- * ---
- * @param {string} $string    - string to pad
- * @param {number} $length    - number of characters to go for in returned string
- * @param {string} $pad       - string to use to pad $string
- * @param {string} $direction - direction left or right for padding
- * ---
- * @return {string}
- */
-
+/// Pad `$string` from `$direction` with `$pad` to reach `$length` characters
+/// @access public
+/// @since 1.2.0
+/// @param {String} $string           - string to pad
+/// @param {Number} $length           - number of characters to go for in returned string
+/// @param {String} $pad       (" ")  - string to use to pad `$string`
+/// @param {String} $direction (left) - direction left or right for padding
+/// @return {String}
 @function _ss-str-pad($string, $length, $pad: " ", $direction: left) {
   $direction: if(index(left right, $direction), $direction, left);
   $new-string: $string;

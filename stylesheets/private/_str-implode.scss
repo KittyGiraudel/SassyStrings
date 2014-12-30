@@ -1,15 +1,8 @@
-/*
- * Implode $list into a string
- * ---
- * @access private
- * ---
- * @since 1.2.0
- * ---
- * @param {list} $list - list to convert to string
- * ---
- * @return {string}
- */
-
+/// Implode `$list` into a string
+/// @access private
+/// @since 1.2.0
+/// @param {List} $list - list to convert to string
+/// @return {String}
 @function _ss-str-implode($list) {
     $result: "";
 
