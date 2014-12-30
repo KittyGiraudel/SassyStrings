@@ -1,7 +1,6 @@
 @function str-lcfirst($string) {
   @if type-of($string) != "string" {
-    @warn "`str-lcfirst` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-lcfirst` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @return _ss-str-lcfirst($string);

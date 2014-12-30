@@ -1,13 +1,11 @@
 @function str-count($string, $needle) {
-    @if type-of($string) != "string" {
-        @warn "`str-count` function expecting a string for $string; #{type-of($string)} given.";
-        @return false;
-    }
+  @if type-of($string) != "string" {
+    @error "`str-count` function expecting a string for $string; #{type-of($string)} given.";
+  }
 
-    @if type-of($needle) != "string" {
-        @warn "`str-count` function expecting a string for $needle; #{type-of($needle)} given.";
-        @return false;
-    }
+  @if type-of($needle) != "string" {
+    @error "`str-count` function expecting a string for $needle; #{type-of($needle)} given.";
+  }
 
-    @return _ss-str-count($string, $needle);
+  @return _ss-str-count($string, $needle);
 }

@@ -1,18 +1,15 @@
 @function char-at($string, $index) {
-    @if type-of($string) != "string" {
-        @warn "`char-at` function expecting a string for $string; #{type-of($string)} given.";
-        @return false;
-    }
+  @if type-of($string) != "string" {
+    @error "`char-at` function expecting a string for $string; #{type-of($string)} given.";
+  }
 
-    @if type-of($index) != "number" {
-        @warn "`char-at` function expecting a number for $index; #{type-of($index)} given.";
-        @return false;
-    }
+  @if type-of($index) != "number" {
+    @error "`char-at` function expecting a number for $index; #{type-of($index)} given.";
+  }
 
-    @if $index < 1 or $index > str-length($string) {
-        @warn "Out of bounds $index for `char-at`.";
-        @return false;
-    }
+  @if $index < 1 or $index > str-length($string) {
+    @error "Out of bounds $index for `char-at`.";
+  }
 
-    @return _ss-char-at($string, $index);
+  @return _ss-char-at($string, $index);
 }

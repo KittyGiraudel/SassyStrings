@@ -1,17 +1,14 @@
 @function str-replace($string, $search, $replace: '') {
   @if type-of($string) != "string" {
-    @warn "`str-replace` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-replace` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @if type-of($search) != "string" {
-    @warn "`str-replace` function expecting a string for $search; #{type-of($search)} given.";
-    @return false;
+    @error "`str-replace` function expecting a string for $search; #{type-of($search)} given.";
   }
 
   @if type-of($replace) != "string" {
-    @warn "`str-replace` function expecting a string for $replace; #{type-of($replace)} given.";
-    @return false;
+    @error "`str-replace` function expecting a string for $replace; #{type-of($replace)} given.";
   }
 
   @return _ss-str-replace($string, $search, $replace);

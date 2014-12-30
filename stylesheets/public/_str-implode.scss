@@ -1,7 +1,7 @@
 @function str-implode($list) {
-    @if type-of($list) != list {
-        @error '$list for str-implode must be a list';
-    }
+  @if type-of($list) != "list" {
+    @error '$list for str-implode must be a list';
+  }
 
-    @return _ss-str-implode($list);
+  @return _ss-str-implode($list);
 }

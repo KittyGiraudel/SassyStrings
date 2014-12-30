@@ -1,12 +1,10 @@
 @function str-repeat($string, $times) {
   @if type-of($string) != "string" {
-    @warn "`str-repeat` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-repeat` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @if type-of($times) != "number" {
-    @warn "`str-repeat` function expecting a number for $times; #{type-of($times)} given.";
-    @return false;
+    @error "`str-repeat` function expecting a number for $times; #{type-of($times)} given.";
   }
 
   @return _ss-str-repeat($string, $times);

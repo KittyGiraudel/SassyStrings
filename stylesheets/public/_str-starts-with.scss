@@ -1,12 +1,10 @@
 @function str-starts-with($string, $needle) {
   @if type-of($string) != "string" {
-    @warn "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-starts-with` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @if type-of($needle) != "string" {
-    @warn "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
-    @return false;
+    @error "`str-starts-with` function expecting a string for $needle; #{type-of($needle)} given.";
   }
 
   @return _ss-str-starts-with($string, $needle);

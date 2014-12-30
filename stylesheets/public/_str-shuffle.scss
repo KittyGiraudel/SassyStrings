@@ -1,6 +1,7 @@
 @function str-shuffle($string) {
-    @if type-of($string) != string {
-        @error '$string of str-shuffle must be a string';
-    }
-    @return _ss-str-shuffle($string);
+  @if type-of($string) != string {
+    @error '$string of str-shuffle must be a string';
+  }
+
+  @return _ss-str-shuffle($string);
 }

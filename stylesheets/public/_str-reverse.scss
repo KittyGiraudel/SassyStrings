@@ -1,7 +1,6 @@
 @function str-reverse($string) {
   @if type-of($string) != "string" {
-    @warn "`str-reverse` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-reverse` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @return _ss-str-reverse($string);

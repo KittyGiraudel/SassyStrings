@@ -1,12 +1,10 @@
 @function str-rot($string, $rot: 13) {
   @if type-of($string) != "string" {
-    @warn "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-rot` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @if type-of($rot) != "number" {
-    @warn "`str-rot` function expecting a number for $rot; #{type-of($rot)} given.";
-    @return false;
+    @error "`str-rot` function expecting a number for $rot; #{type-of($rot)} given.";
   }
 
   @return _ss-str-rot($string, $rot);

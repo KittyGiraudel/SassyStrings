@@ -1,7 +1,6 @@
 @function str-printf($string, $elements...) {
   @if type-of($string) != "string" {
-    @warn "`str-printf` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-printf` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @return _ss-str-printf($string, $elements...);

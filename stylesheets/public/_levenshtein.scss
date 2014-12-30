@@ -1,12 +1,10 @@
 @function levenshtein($a, $b) {
   @if type-of($a) != "string" {
-    @warn "`str-count` function expecting a string for $a; #{type-of($a)} given.";
-    @return false;
+    @error "`str-count` function expecting a string for $a; #{type-of($a)} given.";
   }
 
   @if type-of($b) != "string" {
-    @warn "`str-count` function expecting a string for $b; #{type-of($b)} given.";
-    @return false;
+    @error "`str-count` function expecting a string for $b; #{type-of($b)} given.";
   }
 
   @return _ss-levenshtein($a, $b);

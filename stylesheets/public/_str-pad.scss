@@ -1,17 +1,14 @@
 @function str-pad($string, $length, $pad: " ", $direction: left) {
   @if type-of($string) != "string" {
-    @warn "`str-pad` function expecting a string for $string; #{type-of($string)} given.";
-    @return false;
+    @error "`str-pad` function expecting a string for $string; #{type-of($string)} given.";
   }
 
   @if type-of($pad) != "string" {
-    @warn "`str-pad` function expecting a string for $pad; #{type-of($pad)} given.";
-    @return false;
+    @error "`str-pad` function expecting a string for $pad; #{type-of($pad)} given.";
   }
 
   @if type-of($length) != "number" {
-    @warn "`str-pad` function expecting a number for $length; #{type-of($length)} given.";
-    @return false;
+    @error "`str-pad` function expecting a number for $length; #{type-of($length)} given.";
   }
 
   @return _ss-str-pad($string, $length, $pad, $direction);
