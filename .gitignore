@@ -1,0 +1,5 @@
+.sass-cache
+node_modules
+tmp
+sassdocify
+.sassdoc
