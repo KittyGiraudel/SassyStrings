@@ -1,9 +1,8 @@
-/// Repeat `$string` `$times` times
-/// @access private
+/// Repeat `$string` `$times` times.
 /// @since 1.2.0
 /// @param {String} $string - string to repeat
 /// @param {Number} $times  - number of times to repeat $string
-/// @return {String | false}
+/// @return {String}
 @function _ss-str-repeat($string, $times) {
   $result: "";
 
