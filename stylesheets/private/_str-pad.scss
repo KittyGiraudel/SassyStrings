@@ -7,7 +7,6 @@
 /// @param {String} $direction (left) - direction left or right for padding
 /// @return {String}
 @function _ss-str-pad($string, $length, $pad: " ", $direction: left) {
-  $direction: if(index(left right, $direction), $direction, left);
   $new-string: $string;
   $index: 1;
 
@@ -15,11 +14,11 @@
     @while str-length($new-string) < $length {
       $remains: $length - str-length($new-string);
       $pad: if($remains < str-length($pad), str-slice($pad, 1, $remains), $pad);
+
       @if $direction == left {
         $new-string: str-insert($new-string, $pad, $index);
         $index: $index + str-length($pad);
-      }
-      @else {
+      } @else {
         $new-string: $new-string + $pad;
       }
     }

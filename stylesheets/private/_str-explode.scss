@@ -12,6 +12,7 @@
     @for $i from 1 through $length {
       $result: append($result, str-slice($string, $i, $i));
     }
+
     @return $result;
   }
 
@@ -20,12 +21,12 @@
 
   @while $running {
     $index: str-index($remaining, $delimiter);
+
     @if $index {
       $slice: str-slice($remaining, 1, $index - 1);
       $result: append($result, $slice);
       $remaining: str-slice($remaining, $index + str-length($delimiter));
-    }
-    @else {
+    } @else {
       $running: false;
     }
   }

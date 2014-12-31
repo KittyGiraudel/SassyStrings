@@ -11,5 +11,9 @@
     @error "`str-pad` function expecting a number for $length; #{type-of($length)} given.";
   }
 
+  @if index(left right, $direction) == null {
+    @error "`str-pad` function expecting either `left` or `right` for $direction: #{$direction} given.";
+  }
+
   @return _ss-str-pad($string, $length, $pad, $direction);
 }
