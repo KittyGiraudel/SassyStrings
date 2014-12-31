@@ -1,6 +1,6 @@
 /// Cast `$literal` to string.
 /// @since 1.2.0
-/// @param {*} `$literal` - number to cast to string
+/// @param {*} $literal - number to cast to string
 /// @return {String}
 @function _ss-stringify($literal) {
   $result: "";
