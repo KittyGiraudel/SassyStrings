@@ -16,7 +16,8 @@
     "keywords": [
         "sass",
         "strings",
-        "scss"
+        "scss",
+        "eyeglass-module"
     ],
     "author": "Hugo Giraudel",
     "license": "MIT",
@@ -30,5 +31,10 @@
         "grunt-contrib-concat": "~0.3.0",
         "grunt-contrib-sass": "^0.8.0",
         "grunt-contrib-watch": "~0.5.3"
+    },
+    "eyeglass": {
+        "sassDir": "stylesheets",
+        "name": "SassyStrings",
+        "needs": "*"
     }
 }
