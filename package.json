@@ -33,7 +33,7 @@
         "grunt-contrib-watch": "~0.5.3"
     },
     "eyeglass": {
-        "sassDir": "stylesheets",
+        "sassDir": "dist",
         "name": "SassyStrings",
         "needs": "*"
     }
