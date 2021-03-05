@@ -11,9 +11,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
 
   # Author Information
-  s.authors = ["Hugo Giraudel"]
-  s.email = ["hugo.giraudel@gmail.com"]
-  s.homepage = "https://github.com/HugoGiraudel/SassyStrings"
+  s.authors = ["Kitty Giraudel"]
+  s.email = ["kitty.giraudel@gmail.com"]
+  s.homepage = "https://github.com/KittyGiraudel/SassyStrings"
 
   # Project Description
   s.description = "A collection of Sass functions to manipulate strings."
