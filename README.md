@@ -35,7 +35,7 @@ As well as default Sass core functions:
 * `to-lower-case`
 * `to-upper-case`
 
-If you feel like an explorer, you can have a look at the code [here](https://github.com/HugoGiraudel/SassyStrings/tree/master/stylesheets).
+If you feel like an explorer, you can have a look at the code [here](https://github.com/KittyGiraudel/SassyStrings/tree/master/stylesheets).
 
 ## Requirements
 
