@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/HugoGiraudel/SassyStrings"
+        "url": "https://github.com/KittyGiraudel/SassyStrings"
     },
     "keywords": [
         "sass",
@@ -19,12 +19,12 @@
         "scss",
         "eyeglass-module"
     ],
-    "author": "Hugo Giraudel",
+    "author": "Kitty Giraudel",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/HugoGiraudel/SassyStrings/issues"
+        "url": "https://github.com/KittyGiraudel/SassyStrings/issues"
     },
-    "homepage": "https://github.com/HugoGiraudel/SassyStrings",
+    "homepage": "https://github.com/KittyGiraudel/SassyStrings",
     "devDependencies": {
         "bootcamp": "^1.1.7",
         "grunt": "0.4.5",
